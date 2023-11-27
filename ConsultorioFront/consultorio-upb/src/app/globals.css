@@ -2,10 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --transition: all 0.3s linear;
+  --clr-primary-5: hsl(185, 62%, 45%);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -159,12 +165,38 @@ Hero
 @media screen and (min-width: 768px) {
   .hero {
     background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
-      url('../images/bannerConsultorio.jpg') center/cover no-repeat;
+      url('../app/images/bannerConsultorio.jpg') center/cover no-repeat;
   }
   .hero-banner {
     padding: 0;
   }
   .hero-banner p {
     max-width: 45rem;
+  }
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+/* add :not(.nav-logo) to img */
+
+.nav-icons {
+  display: none;
+}
+
+
+/* nav at bigger screen size */
+@media screen and (min-width: 992px) {
+  /* hide nav toggle button */
+  .nav-icons {
+    display: flex;
+  }
+  .nav-icon {
+    margin-right: 0.7rem;
+    color: var(--clr-primary-5);
+    font-size: 1.2rem;
+    transition: var(--transition);
   }
 }

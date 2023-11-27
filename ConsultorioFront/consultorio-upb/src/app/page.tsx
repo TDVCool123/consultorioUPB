@@ -5,6 +5,7 @@ import  NavBar  from './components/Navbar'
 import Hero from './components/Hero'
 import Tests from './pages/Tests'
 import Videos from './pages/Videos'
+import { Apester } from './components/Apester'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero/>
       <Videos/>
       <Tests/>
+      <Apester/>
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
         <Page></Page>
         <p>

@@ -1,14 +1,15 @@
+import fb from "../images/facebookIcon.png"
+import ig from "../images/InstagramIcon.png"
+
 export const socialLinks = [
     {
       id: 1,
       link: "facebook",
+      icon: fb
     },
     {
       id: 2,
-      link: "twitter",
-    },
-    {
-      id: 3,
-      link: "squarespace",
-    },
+      link: "instagram",
+      icon: ig
+    }
   ];

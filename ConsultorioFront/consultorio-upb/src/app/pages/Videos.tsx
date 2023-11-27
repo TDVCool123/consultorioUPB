@@ -29,22 +29,20 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2];
+const cards = [1, 2]; //Cambiar por la base de datos
 
-// TODO remove, this demo shouldn't need to reset the theme.
-//const defaultTheme = createTheme();
 
 export default function Videos() {
   return (
     <>
       <main>
         {/* Hero unit */}
-        <Container sx={{ py: 8 }} maxWidth="md">
-          <h1 className='flex justify-center align-middle'>Videos</h1>
+        <Container sx={{ py: 4 }} maxWidth="md">
+          <h1 className='flex justify-center align-middle mt-14 mb-24'>Videos</h1>
           {/* End hero unit */}
           <Grid container spacing={4} className='flex justify-center align-mid'>
             {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+              <Grid item key={card} xs={12} sm={6} md={6}>
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                 >
