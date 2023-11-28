@@ -8,7 +8,7 @@ export const SocialLinks = (props:any) => {
     console.log(itemClass);
     
     return (
-      <li>
+      <li className='mx-3'>
         <a
           href={`https://www.${social}.com`}
           target="_blank"

@@ -56,11 +56,26 @@ const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
   },
 }));
 
+const button = styled(Button)<ButtonProps>(({ theme }) => ({
+  color: theme.palette.getContrastText(red[500]),
+  backgroundColor: red[500],
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginLeft: "auto",
+  marginRight: "auto",
+  '&:hover': {
+    backgroundColor: red[700],
+  },
+}));
+
 export default function CustomizedButtons() {
   return (
-    <Stack spacing={2} direction="row">
-      <ColorButton variant="contained" >Prueba un tets!</ColorButton>
-      
+    <Stack spacing={2} direction="row" sx={{justifyContent:'center' }}>
+      <a href="#Tests">
+        <ColorButton variant="contained" >Inicia un Test!</ColorButton>
+        <Button>Inicia un Test!</Button>
+      </a>
     </Stack>
   );
 }

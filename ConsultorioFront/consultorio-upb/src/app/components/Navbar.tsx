@@ -4,11 +4,12 @@ import Image from 'next/image';
 import { SocialLinks } from './SocialLinks';
 import { socialLinks } from '../data/data';
 import logo from '../images/upb.png'
+import { SectionLinks } from './SectionLinks';
 
 const NavBar = () => {
   return (
-    <nav className="bg=fcefdc p-4">
-      <div className="container mx-auto">
+    <nav className="bg=fcefdc p-4 flex-1">
+      <div className="container mx-auto flex-1">
         <div className="flex justify-between items-center">
           <div className="text-82363A  pr-10 ">
             <Link href="/">
@@ -20,11 +21,15 @@ const NavBar = () => {
             </Link>
           </div>
           <div className="space-x-4 text-82363A ">
-            <Link href="/">Tests</Link>
-            <Link href="/about">Videos</Link>
-            {/* Add more links as needed */}
+            <ul className='flex content-center place-self-center '>
+              <SectionLinks parentClass="px-5" section="Tests"></SectionLinks>
+              <SectionLinks parentClass="px-5" section="Videos"></SectionLinks>
+            </ul>
+            {/*<Link href="/Tests">Tests</Link>
+            <Link href="/Videos">Videos</Link>
+             Add more links as needed */}
           </div>
-          <ul className='nav-icons pr-10'>
+          <ul className='nav-icons pr-7'>
             {socialLinks.map((social) => {
               return(
               <SocialLinks key={social.id} social={social.link} icon={social.icon} itemClass='nav-icon'></SocialLinks>
