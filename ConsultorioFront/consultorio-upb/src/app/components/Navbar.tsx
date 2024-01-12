@@ -3,10 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SocialLinks } from './SocialLinks';
 import { socialLinks } from '../data/data';
-import logo from '../images/upb.png'
+import logo from '../images/upb2.png'
 import { SectionLinks } from './SectionLinks';
 
-const NavBar = () => {
+const NavBar = (props: any) => {
+  const bg_color = props;
+
   return (
     <nav className="bg=fcefdc p-4 flex-1">
       <div className="container mx-auto flex-1">

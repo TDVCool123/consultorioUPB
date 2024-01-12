@@ -13,7 +13,13 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
+import Link from "next/link";
+
+import chte from "../../../src/app/images/CHTE.png"
+
+
+import Image from 'next/image';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Copyright() {
@@ -29,14 +35,14 @@ function Copyright() {
   );
 }
 
-const cards = [1, 2]; //Cambiar por la base de datos
+const cards = [1]; //Cambiar por la base de datos
 
 
 
 export default function Tests() {
   return (
     <>
-      <main className='bg-orange-600 bg-opacity-50' id='Tests'>
+      <main className='bg-orange-600 bg-opacity-60' id='Tests'>
         {/* Hero unit */}
         <Container sx={{ py: 8}} maxWidth="md">
           <h1 className='flex justify-center align-middle mt-14 mb-24'>Tests</h1>
@@ -44,30 +50,27 @@ export default function Tests() {
           <Grid container spacing={4} className='flex justify-center align-mid mb-24'>
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={8} md={6} >
-                <a href="/tests">
+                <Link
+                  href={{ pathname: `/test/${card}` } } 
+                >
                 <Card
                   sx={{ height: '100%', display: 'flex', flexDirection: 'column', flex:1}}
                 >
-                  <CardMedia
-                    component="div"
-                    sx={{
-                      // 16:9
-                      pt: '56.25%',
-                    }}
-                    image="https://source.unsplash.com/random?wallpapers"
-                  />
+                  <Image src={chte} // Aquí se espera un string, pero myImage es de tipo StaticImageData
+                     alt="Descripción de la imagen"
+                   
+                  /> 
                   <CardContent sx={{ flexGrow: 1 }}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Test {card}
+                      CUESTIONARIO DE HÁBITOS Y TÉCNICAS DE ESTUDIO
                     </Typography>
                     <Typography color="red" >
-                      This is a media card. You can use this section to describe the
-                      content.
+                      Conoce cuales son tu habilidades y debilidades a la hora de estudiar
                     </Typography>
                   </CardContent>
                   
                 </Card>
-                </a>
+                </Link>
               </Grid>
             ))}
           </Grid>

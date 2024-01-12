@@ -14,8 +14,7 @@ const Hero = () => {
           <div className='hero-banner'>
             <h1 >Consejeria UPB</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              explicabo debitis est autem dicta.
+              En nuestra plataforma de Consejería Estudiantil, estamos comprometidos a ser tu apoyo confiable mientras navegas por estos momentos cruciales.
             </p>
             <a href="#Tests">
               <button className="bg-red-950 bg-opacity-80 rounded text-amber-100 text-opacity-85 text-base text-justify p-2 ">Prueba un Test!</button>
