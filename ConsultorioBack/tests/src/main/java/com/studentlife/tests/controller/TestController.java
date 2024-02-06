@@ -33,16 +33,16 @@ public class TestController {
     @Autowired
     private CHTEtestService testService;
 
-    @PostMapping
-    public String createTest( @RequestBody CHTEtestRequest test){
+    @PostMapping("/{userId}")
+    public String createTest(@PathVariable long userId, @RequestBody CHTEtestRequest test){
         log.debug("El contenido a guardar es: ", test);
 
-        testService.createTest( test);
+        testService.createTest(userId, test);
         return "Test Creado correctamente";
     }
 
     @GetMapping("/{idTest}")
-    public CHTEtestRequest getTest(@PathVariable long idTest){
+    public CHTEtest getTest(@PathVariable long idTest){
         return testService.getTest(idTest);
     }
 

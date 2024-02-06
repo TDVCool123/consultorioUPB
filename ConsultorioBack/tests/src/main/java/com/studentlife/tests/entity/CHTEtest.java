@@ -30,5 +30,6 @@ public class CHTEtest {
     @Column(name="DESCRIPTION")
     private String description;
 
-    
+    @Column(name = "USER_ID")
+    private Long userId;
 }

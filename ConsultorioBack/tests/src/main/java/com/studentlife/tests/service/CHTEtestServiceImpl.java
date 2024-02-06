@@ -1,22 +1,16 @@
 package com.studentlife.tests.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.studentlife.tests.entity.CHTEtest;
 import com.studentlife.tests.entity.Questions;
 import com.studentlife.tests.entity.Results;
 import com.studentlife.tests.models.CHTEanswers;
-import com.studentlife.tests.models.QuestionRequest;
 import com.studentlife.tests.models.CHTEtestRequest;
-import com.studentlife.tests.models.ResultRequest;
 import com.studentlife.tests.repository.QuestionRepository;
 import com.studentlife.tests.repository.ResultRepository;
 import com.studentlife.tests.repository.TestRepository;
@@ -79,14 +73,15 @@ public class CHTEtestServiceImpl implements CHTEtestService{
     }
 
     @Override
-    public CHTEtestRequest getTest(long idTest) {
+    public CHTEtest getTest(long idTest) {
 
         CHTEtest chtEtest = this.testRepository.findById(idTest).get();
 
+        /* 
         CHTEtestRequest testRequest = new CHTEtestRequest();
         BeanUtils.copyProperties(chtEtest, testRequest);
-
-        return testRequest;
+        */
+        return chtEtest;
     }
 
     @Override
@@ -98,7 +93,7 @@ public class CHTEtestServiceImpl implements CHTEtestService{
     }
 
     @Override
-    public String createTest( CHTEtestRequest test) {
+    public String createTest(long userId, CHTEtestRequest test) {
         
         log.debug("El contenido para guardar es: {}", test);
         log.info("El contenido para guardar es: {}", test);
@@ -108,6 +103,7 @@ public class CHTEtestServiceImpl implements CHTEtestService{
                 .id(test.getId())
                 .description(test.getDescription())
                 .name(test.getName())
+                .userId(userId)
                 .build();
         log.debug("El test a guardar es: ", chtEtest);
         log.info("El test a guardar es: ", chtEtest);
@@ -138,7 +134,6 @@ public class CHTEtestServiceImpl implements CHTEtestService{
                 .stream()
                 .map( result ->{
                     Results newResult = Results.builder()
-                        .id(result.getId())
                         .aspecto(result.getAspecto())
                         .value(result.getValue())
                         .test(chtEtest)
